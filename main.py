@@ -15,6 +15,9 @@ def main() -> int:
     if not line or not line.strip():
         print("error: entry line is empty or whitespace only", file=sys.stderr)
         return 1
+    if line != line.strip():
+        print("error: entry has leading or trailing whitespace", file=sys.stderr)
+        return 1
     if "\n" in line or "\r" in line:
         print("error: entry must be a single line", file=sys.stderr)
         return 1
